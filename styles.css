@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+.sketch-container {
+    display: flex;
+    border: 2px solid red;
+    width: 600px;
+    height: 600px;
+    flex-direction: column;
+}
