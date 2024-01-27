@@ -6,13 +6,58 @@ body {
     height: 100vh;
     flex-direction: column;
     width: 100vw;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+}
+h1 {
+    font-family: 'Roboto', sans-serif;
 }
 .sketch-container {
     display: flex;
-    border: 2px solid red;
-    width: 600px;
-    height: 600px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    height: 400px;
+   width: 900px;
+}
+
+.slider {
+    display: flex;
+    width: 800px;
+    justify-content: center;;
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 800px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+/* changing the slider */
+input[type="range"]::-webkit-slider-runnable-track {
+    border-radius: 16px;
+    height: 16px;
+    background: gray;
+}
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: green;
+    border-radius: 50%;
+    border: 2px solid black;
+    box-shadow: -407px 0 0 400px green;
+}
+
+
+/* the problem was targeting the class the whole time */
+.sketch-container > [class^="row"] {
+    display: flex;
     flex-direction: column;
+    flex: 1;
+    border: 1px solid black;
+}
+[class^="row"] > [class="column"] {
+    border: 1px solid black;
+    flex: 1;
+
 }
