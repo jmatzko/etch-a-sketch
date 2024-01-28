@@ -1,3 +1,34 @@
+/*here is css to make custom gradient borders*/
+:root {
+    --clr1: #FF69B4;
+    --clr2: #FFC0CB;
+    --clr3: #74C365;
+    --clr4: #98FB98;
+    --clr5: #008000;
+}
+
+.Ui-buttons::before,
+.Ui-buttons::after,
+.sketch::before,
+.sketch::after {
+    content: "";
+    position: absolute;
+    inset: -.5rem;
+    z-index: -1;
+    background: linear-gradient(
+        0deg,
+        var(--clr3),
+        var(--clr4),
+        var(--clr5),
+        var(--clr1),
+        var(--clr2));
+        border-radius: inherit;
+}
+
+.Ui-buttons::after {
+    filter: blur(3.5rem);
+}
+
 body {
     display: flex;
     box-sizing: border-box;
@@ -7,37 +38,41 @@ body {
     flex-direction: column;
     width: 100vw;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    background: url(https://e360.yale.edu/assets/site/CherokeePrairie_Arkansas_WilliamDarkPhotography_web.jpg);
 }
 h1 {
     font-family: 'Roboto', sans-serif;
+    color: #CCE0FF;
 }
-.sketch-container {
+input {
+    font-family: 'Roboto', sans-serif;
+}
+.sketch {
     display: flex;
     box-sizing: border-box;
-    border: 2px solid black;
-    height: 400px;
+    position: relative;
+    height: 700px;
    width: 900px;
+   background: white;
+   border-radius: 8px;
 }
 
 .slider {
     display: flex;
-    width: 800px;
-    justify-content: center;;
+    width: 100%;
+    align-items: center;
 }
 
 input[type="range"] {
     appearance: none;
-    width: 800px;
-    overflow: hidden;
+    width: 100%;
+    height: 10px;
     border-radius: 16px;
+
+
 }
 /* changing the slider */
-input[type="range"]::-webkit-slider-runnable-track {
-    border-radius: 16px;
-    height: 16px;
-    background: gray;
-}
 input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     height: 15px;
@@ -45,19 +80,52 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: green;
     border-radius: 50%;
     border: 2px solid black;
-    box-shadow: -407px 0 0 400px green;
+    transition: .2s ease-in-out;
 }
 
 
 /* the problem was targeting the class the whole time */
-.sketch-container > [class^="row"] {
+.row {
     display: flex;
     flex-direction: column;
+    border: 1px solid #D3D3D3;
     flex: 1;
-    border: 1px solid black;
 }
-[class^="row"] > [class="column"] {
-    border: 1px solid black;
-    flex: 1;
 
+.column {
+    border: 1px solid #D3D3D3;
+    flex: 1;
+    gap: 1px;
+}
+
+.value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sketch-container {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+.Ui-buttons{
+    position: relative;
+    display: flex;
+    background: #74C365;
+    width: 250px;
+    border-radius: 16px;
+    height: 350px;
+    flex-direction: column;
+    padding: 8px;
+    gap: 6px;
+    
+}
+
+
+#adjust {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    justify-content: center;
 }
