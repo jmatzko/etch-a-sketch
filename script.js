@@ -5,6 +5,9 @@ const sliderValue = document.querySelector('.value');
 
 let gridSize = 16;
 
+document.addEventListener("DOMContentLoaded", () => {
+    makeGrid(gridSize);
+})
 
 
 sliderEl.addEventListener("input", (event) => {
@@ -32,11 +35,17 @@ function clearGrid() {
     }
 }
 
-function changeColor() {
-    let color = "color: black";
-    return color;
-}
+let isButtonClicked = false;
 
+const rainbow = document.querySelector('#rainbow');
+rainbow.addEventListener('click', () => {
+    isButtonClicked = true;
+})
+
+const black = document.querySelector('#black');
+black.addEventListener('click', () => {
+    isButtonClicked = false
+})
 function makeGrid(gridSize) {
     
     
@@ -55,10 +64,34 @@ function makeGrid(gridSize) {
     const gridColor = document.querySelectorAll('.column');
     gridColor.forEach(function(gridColor) {
         gridColor.addEventListener("mouseover", () => {
-            gridColor.style.background = "black";
+            gridColor.style.background = getColor();
+        if(isButtonClicked === false) {
+                gridColor.style.background = getColor();
+            }  
+        if(isButtonClicked === true) { 
+            gridColor.style.background = getRainbow();
+        }
+
+        
+    const clearButton = document.querySelector('#clear-grid');
+    clearButton.addEventListener('click', () => {
+        gridColor.style.background = "white";
     });
+});
+
 });
 }
 
+function getRainbow() {
+    const red = Math.floor(Math.random() * 256); // Random value between 0 and 255
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+
+    return `rgb(${red}, ${green}, ${blue})` 
+}
+
+function getColor() {
+    return "black";
+}
 
 

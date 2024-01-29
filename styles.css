@@ -119,7 +119,6 @@ input[type="range"]::-webkit-slider-thumb {
     flex-direction: column;
     padding: 8px;
     gap: 6px;
-    
 }
 
 
@@ -128,4 +127,13 @@ input[type="range"]::-webkit-slider-thumb {
     font-family: 'Roboto', sans-serif;
     align-items: center;
     justify-content: center;
+}
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+#clear-grid,
+#rainbow,
+#black {
+    display: flex;
 }
